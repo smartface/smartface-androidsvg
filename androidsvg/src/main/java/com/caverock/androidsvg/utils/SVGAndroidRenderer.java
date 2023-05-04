@@ -373,6 +373,12 @@ public class SVGAndroidRenderer
       if (rootObj.height != null)
          viewPort.height = rootObj.height.floatValue(this, viewPort.height);
 
+      if(viewBox != null) {
+         viewBox.width = viewBox.width * renderOptions.scale;
+         viewBox.height = viewBox.height * renderOptions.scale;
+      }
+      this.canvas.scale(renderOptions.scale, renderOptions.scale);
+
       // Render the document
       render(rootObj, viewPort, viewBox, preserveAspectRatio);
 

@@ -52,6 +52,8 @@ public class RenderOptionsBase
    String               viewId = null;
    SVGBase.Box              viewPort = null;
 
+   float                scale = 1;
+
 
    /**
     * Create a new <code>RenderOptions</code> instance.  You can choose to use either this constructor,
@@ -88,6 +90,7 @@ public class RenderOptionsBase
       this.viewId = other.viewId;
       this.viewPort = other.viewPort;
       this.targetId = other.targetId;
+      this.scale = other.scale;
    }
 
    /**
@@ -252,5 +255,15 @@ public class RenderOptionsBase
       return this.targetId != null;
    }
 
+   public RenderOptionsBase scale(float scale)
+   {
+      this.scale = scale;
+      return this;
+   }
+
+   public float hasScale()
+   {
+      return this.scale;
+   }
 
 }

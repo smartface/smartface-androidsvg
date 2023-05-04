@@ -231,5 +231,14 @@ public class RenderOptions extends RenderOptionsBase
       return super.hasTarget();
    }
 
+   public RenderOptions  scale(float scale)
+   {
+      return (RenderOptions) super.scale(scale);
+   }
 
+
+   public float hasScale()
+   {
+      return super.hasScale();
+   }
 }
