@@ -1,5 +1,21 @@
 # AndroidSVG
 
+### Differences with the original repo
+
+- Add scale option for rendering. The dpi value of the device can be passed as a parameter while rendering.
+
+Example:
+
+```
+SVG svg = SVG.getFromInputStream(source);
+svg.setDocumentWidth((int)(svg.getDocumentWidth() * AndroidUnitConverterUtil.density));
+svg.setDocumentHeight((int) (svg.getDocumentHeight() * AndroidUnitConverterUtil.density));
+var renderOptions = new RenderOptions();
+renderOptions.scale(AndroidUnitConverterUtil.density);
+Picture picture = svg.renderToPicture(renderOptions);
+PictureDrawable drawable = new PictureDrawable(picture);
+```
+
 AndroidSVG is a SVG parser and renderer for Android.  It has almost complete support for the static
 visual elements of the SVG 1.1 and SVG 1.2 Tiny specifications (except for filters).
 
